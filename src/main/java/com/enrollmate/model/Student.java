@@ -2,7 +2,6 @@ package com.enrollmate.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,7 +11,6 @@ import java.util.Set;
 @AllArgsConstructor
 @Builder
 public class Student {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,6 +18,7 @@ public class Student {
     private String name;
     private String email;
 
+    @ToString.Exclude
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "student_courses",
